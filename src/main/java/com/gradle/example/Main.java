@@ -21,20 +21,20 @@ public class Main {
         if (args.length == 0) {
             System.out.println("Moves cannot be 0");
             return;
-        } else if (numberOfMoves % 2 == 0 || numberOfMoves < 3) {
+        } else if (numberOfMoves % 2 == 0) {
             System.out.println("Number of moves must be odd");
             return;
         } else if (numberOfMoves < 3) {
-            System.out.println("Number of moves must be at least 3.");
+            System.out.println("Number of moves must be a minimum of 3.");
         }
 
         Map<String, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < args.length; i++) {
-            if (map.containsKey(args[i])) {
+        for (String arg : args) {
+            if (map.containsKey(arg)) {
                 System.out.println("Moves cannot have duplicate names");
             } else {
-                map.put(args[i], 1);
+                map.put(arg, 1);
             }
         }
 
