@@ -26,13 +26,16 @@ public class Main {
             return;
         } else if (numberOfMoves < 3) {
             System.out.println("Number of moves must be a minimum of 3.");
+            return;
         }
 
+        //Checks for duplicate moves entered by user
         Map<String, Integer> map = new HashMap<>();
 
         for (String arg : args) {
             if (map.containsKey(arg)) {
                 System.out.println("Moves cannot have duplicate names");
+                return;
             } else {
                 map.put(arg, 1);
             }
