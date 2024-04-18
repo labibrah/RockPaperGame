@@ -12,10 +12,7 @@ public class Main {
     public static String[] moves;
 
     public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeyException {
-        //A cryptographically strong random key generated using SecureRandom
-        RandomKeyGenerator randomKey = new RandomKeyGenerator();
-        String originalKey = randomKey.getGeneratedString();
-
+        // Checking input
         Scanner scanner = new Scanner(System.in);
         int numberOfMoves = args.length;
         if (args.length == 0) {
@@ -49,6 +46,9 @@ public class Main {
 
         // Game loop
         while (true) {
+            //A cryptographically strong random key generated using SecureRandom
+            RandomKeyGenerator randomKey = new RandomKeyGenerator();
+            String originalKey = randomKey.getGeneratedString();
             // Makes a move and then creates HMAC key which is shown to the user
             String computerMove = getRandomMove(moves);
             HMAC hmacObject = new HMAC("HmacSHA256", computerMove, originalKey);
